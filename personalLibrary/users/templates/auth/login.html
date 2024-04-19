@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'library/login.css' %}">
+</head>
+<body>
+  <div class="login-page">
+    <div class="header">
+      <h1>My Personal Library</h1>
+      <p>Welcome to your book collection.</p>
+    </div>
+
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button type="submit" class="btn">Login</button>
+    </form>
+    <p class="sing_in">Don't have an account? <a href={{signinURL}}>Sign in</a></p>
+  </div>
+</body>
+</html>
+
+

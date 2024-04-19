@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Collection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffe6a7; /* Warm background color */
+        }
+        .container {
+            max-width: 65vw;
+            margin: 0 auto;
+            padding: 20px;
+            padding-bottom: 0;
+            background-color: #bb9457; /* Warm container background color */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 10px;
+        }
+        .book {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .book-item {
+            width: 18%;
+            background-color: #99582a; /* Warm book item background color */
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            position: relative; /* Ensure relative positioning */
+            height: 280px; /* Set a fixed height for each book item */
+        }
+        h1 {
+            margin-top: 100px;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #6f1d1b; /* Warm heading color */
+        }
+        h2, h3 {
+            margin: 3px 0;
+            color: #432818; /* Warm text color */
+        }
+        h4 {
+            margin: 1px 0;
+            color: #432818; /* Warm text color */
+            position: absolute; /* Position delete link absolutely */
+            bottom: 10px; /* Position it at the bottom */
+            left: 0; /* Align it to the left */
+            right: 0; /* Align it to the right */
+            text-align: center; /* Center text */
+        }
+        p {
+            color: #432818; /* Warm text color */
+            font-weight: bold;
+        }
+        a {
+            color: #ffe6a7; /* Change link color to a warm tone */
+            text-decoration: none; /* Remove underline */
+        }
+        a:hover {
+            color: #6f1d1b; /* Darken link color on hover */
+        }
+    </style>
+</head>
+<body>
+  {% extends 'navbar/navbar.html' %}
+
+  {% block title %}
+      Home - My Site
+  {% endblock %}
+
+  {% block content %}
+    <h1>Personal library</h1>
+    <div class="container">
+        <div class="book">
+          {% for book in books %}
+            <div class="book-item">
+              <h2>{{ book.Title }}</h2>
+              <h3>{{ book.Author }}</h3>
+              <p>{{ book.ISBN }}</p>
+              <p>Pages: {{ book.NumOfPages }}</p>
+              <p>Genre:</p>
+              <p>{{ book.Genre }}</p>
+              <h4><a href="/library/delete_book/{{ book.ISBN }}">Delete book</a></h4>
+            </div>
+          {% endfor %}
+    </div>
+  {% endblock %}
+</body>
+</html>
+

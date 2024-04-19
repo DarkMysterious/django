@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Site{% endblock %}</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            background-color: #99582a; /* Warm background color */
+            padding: 10px 0;
+            text-align: center; /* Center the navbar */
+            margin: auto;
+            width: 35%;
+            border-bottom-left-radius: 60px;
+            border-bottom-right-radius: 60px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #ffe6a7; /* Warm text color */
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 10px 10px 0 0; /* Round edges only at the top */
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #bb9457; /* Darker hover color */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Library</a></li>
+            <li><a href="/add_book">Add book</a></li>
+            {% if user.is_authenticated %}
+              <li><a href="/users/logout_user">Log out {{ user.username }}</a></li>
+              <li><a href="/library/delete_users_data">Delete {{ user.username }}</a></li>
+            {% endif %}
+            <!-- Add more navbar items as needed -->
+        </ul>
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
+

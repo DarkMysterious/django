@@ -1,0 +1,81 @@
+/* login.css */
+
+/* Reset default browser styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffe6a7; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  color: #6f1d1b;
+}
+
+/* Container styles */
+.login-page {
+  width: 400px; /* Adjust the width as needed */
+  padding: 20px;
+  background-color: #bb9457; /* Light brown background for the form */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styles */
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.header p {
+  font-size: 19px;
+}
+
+/* Form styles */
+.form-group {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #6f1d1b; /* Dark red border */
+  border-radius: 4px;
+}
+
+button.btn {
+  width: 100%; /* Adjust the width as needed */
+  padding: 10px;
+  background-color: #99582a; /* Brownish orange button color */
+  font-size: 16px;
+  color: #fff; /* White text color for the button */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button.btn:hover {
+  background-color: #6f1d1b; /* Dark red color on hover */
+}
+
+.sing_in {
+  padding-top: 6px;
+}

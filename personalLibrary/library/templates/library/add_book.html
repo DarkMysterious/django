@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Book</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #ffe6a7; /* Warm background color */
+            color: #432818; /* Dark text color for better visibility */
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #6f1d1b; /* Warm heading color */
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #bb9457; /* Warm form background color */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #432818; /* Dark text color */
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #432818; /* Dark border color */
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #99582a; /* Warm submit button color */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #6f1d1b; /* Darken submit button color on hover */
+        }
+    </style>
+</head>
+<body>
+  {% extends 'navbar/navbar.html' %}
+
+  {% block title %}
+      Home - My Site
+  {% endblock %}
+
+  {% block content %}
+    <h1>Adding Book</h1>
+    <h2>{{ status }}</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        <label for="Title">Book title:</label>
+        <input type="text" id="Title" name="Title" value="{{ title }}" maxlength="60">
+
+        <label for="Author">Author:</label>
+        <input type="text" id="Author" name="Author" value="{{ author }}" maxlength="60">
+
+        <label for="NumOfPages">Number of pages:</label>
+        <input type="number" id="NumOfPages" name="NumOfPages" value="{{ pages }}" min="1" max="32766">
+
+        <label for="ISBN">ISBN:</label>
+        <input type="text" id="ISBN" name="ISBN" value="{{ ISBN }}" maxlength="30">
+
+        <label for="Genre">Genre:</label>
+        <input type="text" id="Genre" name="Genre" value="{{ genre }}" maxlength="60">
+
+        <input type="submit" value="Add">
+    </form>
+
+    <h1>Search Book by ISBN</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        <label for="isbn">ISBN:</label>
+        <input type="text" id="isbn" name="isbn" maxlength="30">
+        <input type="submit" value="Search">
+    </form>
+  {% endblock %}
+</body>
+</html>
+
